@@ -10,7 +10,7 @@ jobs:
   docker:
     runs-on: ubuntu-latest
     env:
-      IMAGE_NAME: r_4.2.2
+      IMAGE_NAME: ess_dev_env
     steps:
       - name: Setup
         uses: docker/setup-buildx-action@v2
