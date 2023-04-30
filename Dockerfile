@@ -33,6 +33,8 @@ RUN rm /home/quarto.deb
 
 EXPOSE 8888
 
+RUN git clone -b develop https://github.com/syl20bnr/spacemacs /home/.emacs.d
+
 RUN R -e "install.packages(c('remotes', 'tidyverse', 'chronicler', 'janitor', 'targets', 'openxlsx', 'shiny', 'httpgd'))"
 
 CMD ["emacs"]
