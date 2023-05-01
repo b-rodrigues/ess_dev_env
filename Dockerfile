@@ -2,7 +2,7 @@ FROM rocker/r-ver:4.3
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
-    software-properties-common
+    gpg-agent software-properties-common
 
 RUN add-apt-repository ppa:kelleyk/emacs
 
