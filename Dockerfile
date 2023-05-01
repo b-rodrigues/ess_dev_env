@@ -50,4 +50,3 @@ RUN emacs --daemon
 
 EXPOSE 8888
 
-CMD ['emacs']
