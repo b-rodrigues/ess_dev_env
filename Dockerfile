@@ -1,10 +1,12 @@
 FROM rocker/r-ver:4.3
 
+RUN add-apt-repository ppa:kelleyk/emacs
+
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
     git \
     wget \
-    emacs-nox
+    emacs28-nox
 
 RUN git clone -b develop https://github.com/syl20bnr/spacemacs ~/.emacs.d
 
