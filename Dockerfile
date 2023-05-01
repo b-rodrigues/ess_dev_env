@@ -40,9 +40,7 @@ RUN apt-get update \
     libjpeg-dev \
     libxt-dev \
     unixodbc-dev \
-    pandoc \
-    emacs-nox \
-    && apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/*
+    pandoc
 
 RUN wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.3.340/quarto-1.3.340-linux-amd64.deb -O ~/quarto.deb
 RUN apt-get install --yes ~/quarto.deb
