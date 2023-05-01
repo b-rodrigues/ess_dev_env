@@ -50,7 +50,8 @@ RUN echo 'options(httpgd.host = "0.0.0.0", httpgd.port = 8888)' >> /root/.Rprofi
 
 RUN echo 'options(repos = c(REPO_NAME = "https://packagemanager.rstudio.com/cran/__linux__/jammy/2023-04-28"))' >> /root/.Rprofile
 
-RUN R -e "install.packages(c('remotes', 'tidyverse', 'chronicler', 'janitor', 'targets', 'openxlsx', 'shiny', 'httpgd'))"
+RUN R -e "install.packages(c('remotes', 'tidyverse', 'arrow', 'chronicler', 'janitor', 'targets', 'openxlsx', 'shiny', 'httpgd', 'blogdown', 'bookdown'))" 
+
 
 EXPOSE 8888
 
