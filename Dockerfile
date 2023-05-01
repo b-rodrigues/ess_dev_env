@@ -10,7 +10,7 @@ RUN git clone -b develop https://github.com/syl20bnr/spacemacs ~/.emacs.d
 
 RUN wget https://raw.githubusercontent.com/b-rodrigues/dotfiles/master/dotfiles/.spacemacs -O ~/.spacemacs
 
-RUN emacs --bg-daemon
+RUN emacs --daemon
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
