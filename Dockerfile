@@ -50,4 +50,4 @@ RUN R -e "install.packages(c('remotes', 'tidyverse', 'chronicler', 'janitor', 't
 
 EXPOSE 8888
 
-CMD ['bash']
+CMD ['sh']
