@@ -46,9 +46,9 @@ RUN wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.3.340/qua
 RUN apt-get install --yes ~/quarto.deb
 RUN rm ~/quarto.deb
 
-RUN echo 'options(httpgd.host = "0.0.0.0", httpgd.port = 8888)' >> /etc/R/Rprofile.site
+RUN echo 'options(httpgd.host = "0.0.0.0", httpgd.port = 8888)' >> /root/.Rprofile
 
-RUN echo 'options(repos = c(REPO_NAME = "https://packagemanager.rstudio.com/cran/__linux__/jammy/2023-04-28"))' >> /etc/R/Rprofile.site
+RUN echo 'options(repos = c(REPO_NAME = "https://packagemanager.rstudio.com/cran/__linux__/jammy/2023-04-28"))' >> /root/.Rprofile
 
 RUN R -e "install.packages(c('remotes', 'tidyverse', 'chronicler', 'janitor', 'targets', 'openxlsx', 'shiny', 'httpgd'))"
 
