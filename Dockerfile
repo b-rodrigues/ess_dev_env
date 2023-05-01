@@ -8,7 +8,7 @@ RUN apt-get update \
 
 RUN git clone -b develop https://github.com/syl20bnr/spacemacs ~/.emacs.d
 
-RUN wget https://raw.githubusercontent.com/b-rodrigues/dotfiles/master/dotfiles/.spacemacs ~/.spacemacs
+RUN wget https://raw.githubusercontent.com/b-rodrigues/dotfiles/master/dotfiles/.spacemacs -O ~/.spacemacs
 
 RUN emacs --daemon
 
