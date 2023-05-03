@@ -52,13 +52,13 @@ RUN mkdir /root/projects/
 
 RUN echo 'options(httpgd.host = "0.0.0.0", httpgd.port = 8888, httpgd.token = "aaaaaaaa")' >> /root/.Rprofile
 
-RUN echo 'httpgd::hgd()' >> /root/.Rprofile
-
 RUN echo 'options(repos = c(REPO_NAME = "https://packagemanager.rstudio.com/cran/__linux__/jammy/2023-04-28"))' >> /root/.Rprofile
 
-RUN R -e "install.packages(c('remotes', 'tidyverse', 'arrow', 'chronicler', 'janitor', 'targets', 'openxlsx', 'shiny', 'httpgd', 'blogdown', 'bookdown'))" 
+RUN R -e "install.packages(c('quarto', 'remotes', 'tidyverse', 'arrow', 'chronicler', 'janitor', 'targets', 'openxlsx', 'shiny', 'httpgd', 'blogdown', 'bookdown'))" 
 
 RUN R -e "blogdown::install_hugo()"
+
+RUN echo 'httpgd::hgd()' >> /root/.Rprofile
 
 EXPOSE 8888
 
