@@ -50,7 +50,9 @@ RUN rm ~/quarto.deb
 
 RUN mkdir /root/projects/
 
-RUN echo 'options(httpgd.host = "0.0.0.0", httpgd.port = 8888)' >> /root/.Rprofile
+RUN echo 'options(httpgd.host = "0.0.0.0", httpgd.port = 8888, httpgd.token = "aaaaaaaa")' >> /root/.Rprofile
+
+RUN echo 'httpgd::hgd()' >> /root/.Rprofile
 
 RUN echo 'options(repos = c(REPO_NAME = "https://packagemanager.rstudio.com/cran/__linux__/jammy/2023-04-28"))' >> /root/.Rprofile
 
