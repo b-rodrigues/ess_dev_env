@@ -43,7 +43,9 @@ RUN apt-get update \
    pandoc
 
 RUN wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.3.340/quarto-1.3.340-linux-amd64.deb -O ~/quarto.deb
+
 RUN apt-get install --yes ~/quarto.deb
+
 RUN rm ~/quarto.deb
 
 RUN mkdir /root/projects/
@@ -54,6 +56,7 @@ RUN echo 'options(repos = c(REPO_NAME = "https://packagemanager.rstudio.com/cran
 
 RUN R -e "install.packages(c('remotes', 'tidyverse', 'arrow', 'chronicler', 'janitor', 'targets', 'openxlsx', 'shiny', 'httpgd', 'blogdown', 'bookdown'))" 
 
+RUN R -e "blogdown::install_hugo()"
 
 EXPOSE 8888
 
