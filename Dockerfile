@@ -20,6 +20,10 @@ RUN emacs --daemon
 
 RUN apt-get update \
    && apt-get install -y --no-install-recommends \
+   aspell \
+   aspell-en \
+   aspell-fr \
+   aspell-pt-pt
    libfontconfig1-dev \
    libglpk-dev \
    libxml2-dev \
@@ -54,7 +58,9 @@ RUN echo 'options(httpgd.host = "0.0.0.0", httpgd.port = 8888, httpgd.token = "a
 
 RUN echo 'options(repos = c(REPO_NAME = "https://packagemanager.rstudio.com/cran/__linux__/jammy/2023-04-28"))' >> /root/.Rprofile
 
-RUN R -e "install.packages(c('quarto', 'remotes', 'tidyverse', 'arrow', 'chronicler', 'janitor', 'targets', 'openxlsx', 'shiny', 'httpgd', 'blogdown', 'bookdown'))" 
+RUN R -e "install.packages(c('quarto', 'remotes', 'tinytex', 'tidyverse', 'arrow', 'chronicler', 'janitor', 'targets', 'openxlsx', 'shiny', 'httpgd', 'blogdown', 'bookdown'))" 
+
+RUN R -e "tinytex::install_tinytex()"
 
 RUN R -e "blogdown::install_hugo()"
 
