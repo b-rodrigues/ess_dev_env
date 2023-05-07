@@ -23,7 +23,7 @@ RUN apt-get update \
    aspell \
    aspell-en \
    aspell-fr \
-   aspell-pt-pt
+   aspell-pt-pt \
    libfontconfig1-dev \
    libglpk-dev \
    libxml2-dev \
