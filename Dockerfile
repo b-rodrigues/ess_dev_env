@@ -56,6 +56,8 @@ RUN mkdir /root/projects/
 
 RUN echo 'options(httpgd.host = "0.0.0.0", httpgd.port = 8888, httpgd.token = "aaaaaaaa")' >> /root/.Rprofile
 
+RUN echo 'options(renv.config.cache.symlinks = FALSE)' >> /root/.Rprolife
+
 RUN echo 'options(repos = c(REPO_NAME = "https://packagemanager.rstudio.com/cran/__linux__/jammy/2023-04-28"))' >> /root/.Rprofile
 
 RUN R -e "install.packages(c('quarto', 'remotes', 'tinytex', 'tidyverse', 'arrow', 'chronicler', 'janitor', 'targets', 'openxlsx', 'shiny', 'httpgd', 'blogdown', 'bookdown'))" 
