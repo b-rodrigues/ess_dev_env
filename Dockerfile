@@ -60,11 +60,14 @@ RUN echo 'options(renv.config.cache.symlinks = FALSE)' >> /root/.Rprofile
 
 RUN echo 'options(shiny.host = "0.0.0.0", shiny.port = 8888)' >> /root/.Rprofile
 
-RUN echo 'httpgd::hgd()' >> /root/.Rprofile
 
 RUN echo 'options(repos = c(REPO_NAME = "https://packagemanager.rstudio.com/cran/__linux__/jammy/2023-04-28"))' >> /root/.Rprofile
 
 RUN R -e "install.packages(c('quarto', 'remotes', 'tinytex', 'tidyverse', 'arrow', 'chronicler', 'janitor', 'targets', 'tarchetypes', 'openxlsx', 'shiny', 'flexdashboard', 'data.table', 'httpgd', 'blogdown', 'bookdown'))" 
+
+RUN echo 'httpgd::hgd()' >> /root/.Rprofile
+
+
 
 RUN R -e "remotes::install_github('devOpifex/g2r')"
 
