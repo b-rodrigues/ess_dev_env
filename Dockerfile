@@ -60,6 +60,8 @@ RUN echo 'options(renv.config.cache.symlinks = FALSE)' >> /root/.Rprofile
 
 RUN echo 'options(shiny.host = "0.0.0.0", shiny.port = 8888)' >> /root/.Rprofile
 
+RUN echo 'options(servr.host = "0.0.0.0", servr.port = 8888)' >> /root/.Rprofile
+
 RUN echo 'options(repos = c(REPO_NAME = "https://packagemanager.rstudio.com/cran/__linux__/jammy/2023-04-28"))' >> /root/.Rprofile
 
 RUN R -e "install.packages(c('quarto', 'remotes', 'tinytex', 'tidyverse', 'arrow', 'chronicler', 'janitor', 'targets', 'tarchetypes', 'openxlsx', 'shiny', 'flexdashboard', 'data.table', 'httpgd', 'blogdown', 'bookdown'))" 
@@ -68,6 +70,7 @@ RUN R -e "remotes::install_github('devOpifex/g2r')"
 
 RUN R -e "tinytex::install_tinytex()"
 
-RUN R -e "blogdown::install_hugo()"
+# This old release of hugo is what I need
+RUN R -e "blogdown::install_hugo(version = '0.25.1')"
 
 EXPOSE 8888
