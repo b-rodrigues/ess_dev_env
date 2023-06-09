@@ -64,7 +64,11 @@ RUN echo 'options(servr.host = "0.0.0.0", servr.port = 8888)' >> /root/.Rprofile
 
 RUN echo 'options(repos = c(REPO_NAME = "https://packagemanager.rstudio.com/cran/__linux__/jammy/2023-04-28"))' >> /root/.Rprofile
 
-RUN R -e "install.packages(c('quarto', 'remotes', 'tinytex', 'tidyverse', 'arrow', 'chronicler', 'janitor', 'targets', 'tarchetypes', 'openxlsx', 'shiny', 'flexdashboard', 'data.table', 'httpgd', 'blogdown', 'bookdown'))" 
+RUN R -e "install.packages(c('quarto', 'remotes', 'tinytex', 'tidyverse', 'arrow', 'chronicler', 'janitor', 'targets', 'tarchetypes', 'openxlsx', 'shiny', 'flexdashboard', 'data.table', 'httpgd', 'blogdown', 'bookdown', 'ggridges', 'skimr'))" 
+
+RUN R -e "install.packages('http://cran.r-project.org/src/contrib/Archive/Zelig/Zelig_5.1.6.tar.gz', repos=NULL, type='source')"
+
+RUN R -e "install.packages('http://cran.r-project.org/src/contrib/Archive/ZeligChoice/ZeligChoice_0.9-6.tar.gz', repos=NULL, type='source')"
 
 RUN R -e "remotes::install_github('devOpifex/g2r')"
 
