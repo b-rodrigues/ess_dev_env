@@ -1,4 +1,4 @@
-FROM rocker/r-ver:4.3
+FROM rocker/r-ver:4.3.1
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
@@ -46,7 +46,7 @@ RUN apt-get update \
    unixodbc-dev \
    pandoc
 
-RUN wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.3.340/quarto-1.3.340-linux-amd64.deb -O ~/quarto.deb
+RUN wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.3.433/quarto-1.3.433-linux-arm64.deb -O ~/quarto.deb
 
 RUN apt-get install --yes ~/quarto.deb
 
@@ -62,7 +62,7 @@ RUN echo 'options(shiny.host = "0.0.0.0", shiny.port = 8888)' >> /root/.Rprofile
 
 RUN echo 'options(servr.host = "0.0.0.0", servr.port = 8888)' >> /root/.Rprofile
 
-RUN echo 'options(repos = c(REPO_NAME = "https://packagemanager.rstudio.com/cran/__linux__/jammy/2023-04-28"))' >> /root/.Rprofile
+RUN echo 'options(repos = c(REPO_NAME = "https://packagemanager.posit.co/cran/__linux__/jammy/2023-06-30"))' >> /root/.Rprofile
 
 RUN R -e "install.packages(c('flextable', 'quarto', 'remotes', 'tinytex', 'tidyverse', 'arrow', 'chronicler', 'janitor', 'targets', 'tarchetypes', 'openxlsx', 'shiny', 'flexdashboard', 'data.table', 'httpgd', 'blogdown', 'bookdown', 'ggridges', 'skimr', 'rang', 'groundhog'))" 
 
