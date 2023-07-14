@@ -64,7 +64,7 @@ RUN echo 'options(servr.host = "0.0.0.0", servr.port = 8888)' >> /root/.Rprofile
 
 RUN echo 'options(repos = c(REPO_NAME = "https://packagemanager.posit.co/cran/__linux__/jammy/2023-06-30"))' >> /root/.Rprofile
 
-RUN R -e "install.packages(c('flextable', 'quarto', 'remotes', 'tinytex', 'tidyverse', 'arrow', 'chronicler', 'janitor', 'targets', 'tarchetypes', 'openxlsx', 'shiny', 'flexdashboard', 'data.table', 'httpgd', 'blogdown', 'bookdown', 'ggridges', 'skimr', 'rang', 'groundhog'))" 
+RUN R -e "install.packages(c('flextable', 'quarto', 'remotes', 'tinytex', 'tidyverse', 'arrow', 'chronicler', 'janitor', 'targets', 'tarchetypes', 'openxlsx', 'shiny', 'flexdashboard', 'data.table', 'httpgd', 'blogdown', 'bookdown', 'ggridges', 'skimr', 'rang', 'groundhog', 'fusen'))" 
 
 RUN R -e "install.packages(c('sandwich', 'VGAM', 'jsonlite', 'AER', 'plyr', 'dplyr', 'quantreg', 'geepack', 'MCMCpack', 'maxLik', 'Amelia', 'MatchIt', 'survey'))"
 
