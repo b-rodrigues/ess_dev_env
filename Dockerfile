@@ -46,7 +46,7 @@ RUN apt-get update \
    unixodbc-dev \
    pandoc
 
-RUN wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.5.555/quarto-1.5.555-linux-amd64.deb -O ~/quarto.deb
+RUN wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.5.55/quarto-1.5.55-linux-amd64.deb -O ~/quarto.deb
 
 RUN apt-get install --yes ~/quarto.deb
 
