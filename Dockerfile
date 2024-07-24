@@ -4,13 +4,13 @@ RUN apt-get update \
     && apt-get install -y --no-install-recommends \
     gpg-agent software-properties-common
 
-RUN add-apt-repository ppa:kelleyk/emacs
+RUN add-apt-repository ppa:ubuntuhandbook1/emacs
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
     git \
     wget \
-    emacs29-nox
+    emacs
 
 RUN git clone -b develop https://github.com/syl20bnr/spacemacs ~/.emacs.d
 
