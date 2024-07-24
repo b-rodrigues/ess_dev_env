@@ -1,4 +1,4 @@
-FROM rocker/r-ver:4.3.1
+FROM rocker/r-ver:4.4.1
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
@@ -10,7 +10,7 @@ RUN apt-get update \
     && apt-get install -y --no-install-recommends \
     git \
     wget \
-    emacs28-nox
+    emacs29-nox
 
 RUN git clone -b develop https://github.com/syl20bnr/spacemacs ~/.emacs.d
 
@@ -46,7 +46,7 @@ RUN apt-get update \
    unixodbc-dev \
    pandoc
 
-RUN wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.3.433/quarto-1.3.433-linux-amd64.deb -O ~/quarto.deb
+RUN wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.5.555/quarto-1.5.555-linux-amd64.deb -O ~/quarto.deb
 
 RUN apt-get install --yes ~/quarto.deb
 
@@ -62,21 +62,21 @@ RUN echo 'options(shiny.host = "0.0.0.0", shiny.port = 8888)' >> /root/.Rprofile
 
 RUN echo 'options(servr.host = "0.0.0.0", servr.port = 8888)' >> /root/.Rprofile
 
-RUN echo 'options(repos = c(REPO_NAME = "https://packagemanager.posit.co/cran/__linux__/jammy/2023-06-30"))' >> /root/.Rprofile
+RUN echo 'options(repos = c(REPO_NAME = "https://packagemanager.posit.co/cran/__linux__/jammy/2024-07-22"))' >> /root/.Rprofile
 
-RUN R -e "install.packages(c('flextable', 'quarto', 'remotes', 'tinytex', 'tidyverse', 'arrow', 'chronicler', 'janitor', 'targets', 'tarchetypes', 'openxlsx', 'shiny', 'flexdashboard', 'data.table', 'httpgd', 'blogdown', 'bookdown', 'ggridges', 'skimr', 'rang', 'groundhog', 'fusen'))" 
+RUN R -e "install.packages(c('quarto', 'tinytex', 'tidyverse', 'arrow', 'chronicler', 'janitor', 'targets', 'tarchetypes', 'openxlsx', 'data.table', 'skimr'))" 
 
-RUN R -e "install.packages(c('sandwich', 'VGAM', 'jsonlite', 'AER', 'plyr', 'dplyr', 'quantreg', 'geepack', 'MCMCpack', 'maxLik', 'Amelia', 'MatchIt', 'survey'))"
+#RUN R -e "install.packages(c('sandwich', 'VGAM', 'jsonlite', 'AER', 'plyr', 'dplyr', 'quantreg', 'geepack', 'MCMCpack', 'maxLik', 'Amelia', 'MatchIt', 'survey'))"
 
-RUN R -e "install.packages('http://cran.r-project.org/src/contrib/Archive/Zelig/Zelig_5.1.6.tar.gz', repos=NULL, type='source')"
+#RUN R -e "install.packages('http://cran.r-project.org/src/contrib/Archive/Zelig/Zelig_5.1.6.tar.gz', repos=NULL, type='source')"
 
-RUN R -e "install.packages('http://cran.r-project.org/src/contrib/Archive/ZeligChoice/ZeligChoice_0.9-6.tar.gz', repos=NULL, type='source')"
+#RUN R -e "install.packages('http://cran.r-project.org/src/contrib/Archive/ZeligChoice/ZeligChoice_0.9-6.tar.gz', repos=NULL, type='source')"
 
-RUN R -e "remotes::install_github('devOpifex/g2r')"
+#RUN R -e "remotes::install_github('devOpifex/g2r')"
 
 RUN R -e "tinytex::install_tinytex()"
 
 # This old release of hugo is what I need
-RUN R -e "blogdown::install_hugo(version = '0.25.1')"
+#RUN R -e "blogdown::install_hugo(version = '0.25.1')"
 
 EXPOSE 8888
