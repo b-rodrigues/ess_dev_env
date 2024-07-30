@@ -10,7 +10,8 @@ RUN apt-get update \
     && apt-get install -y --no-install-recommends \
     git \
     wget \
-    emacs
+    emacs \
+    pip
 
 RUN git clone -b develop https://github.com/syl20bnr/spacemacs ~/.emacs.d
 
@@ -54,9 +55,7 @@ RUN rm ~/quarto.deb
 
 RUN mkdir /root/projects/
 
-RUN curl -L micro.mamba.pm/install.sh
-
-RUN micromamba create -n octopize python=3.12.1 octopize.avatar polars
+RUN pip3 install octopize.avatar polars
 
 RUN echo 'options(repos = c(REPO_NAME = "https://packagemanager.posit.co/cran/__linux__/jammy/2024-07-22"))' >> /root/.Rprofile
 
