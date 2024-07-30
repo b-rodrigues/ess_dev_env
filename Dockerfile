@@ -74,4 +74,6 @@ RUN R -e "tinytex::install_tinytex()"
 # This old release of hugo is what I need
 #RUN R -e "blogdown::install_hugo(version = '0.25.1')"
 
-EXPOSE 8888
+RUN emacs --daemon
+
+EXPOSE 9999
