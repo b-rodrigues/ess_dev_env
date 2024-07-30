@@ -55,7 +55,23 @@ RUN rm ~/quarto.deb
 
 RUN mkdir /root/projects/
 
-RUN pip3 install octopize.avatar polars
+
+# Install pyenv
+RUN curl https://pyenv.run | bash
+
+# Set environment variables for pyenv
+ENV PATH="/root/.pyenv/bin:/root/.pyenv/shims:/root/.pyenv/versions/3.12.0/bin:$PATH"
+ENV PYENV_ROOT="/root/.pyenv"
+
+# Install Python 3.12
+RUN pyenv install 3.12.0
+RUN pyenv global 3.12.0
+
+# Verify installation
+RUN python --version
+
+# Install the polars package
+RUN pip install octopize.avatar polars
 
 RUN echo 'options(repos = c(REPO_NAME = "https://packagemanager.posit.co/cran/__linux__/jammy/2024-07-22"))' >> /root/.Rprofile
 
