@@ -59,7 +59,7 @@ RUN pip3 install octopize.avatar polars
 
 RUN echo 'options(repos = c(REPO_NAME = "https://packagemanager.posit.co/cran/__linux__/jammy/2024-07-22"))' >> /root/.Rprofile
 
-RUN R -e "install.packages(c('quarto', 'tinytex', 'tidyverse', 'arrow', 'chronicler', 'janitor', 'targets', 'tarchetypes', 'openxlsx', 'data.table', 'skimr'))" 
+RUN R -e "install.packages(c('quarto', 'tinytex', 'tidyverse', 'reticulate', 'arrow', 'chronicler', 'janitor', 'targets', 'tarchetypes', 'openxlsx', 'data.table', 'skimr'))" 
 
 #RUN R -e "install.packages(c('sandwich', 'VGAM', 'jsonlite', 'AER', 'plyr', 'dplyr', 'quantreg', 'geepack', 'MCMCpack', 'maxLik', 'Amelia', 'MatchIt', 'survey'))"
 
