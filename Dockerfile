@@ -54,13 +54,9 @@ RUN rm ~/quarto.deb
 
 RUN mkdir /root/projects/
 
-RUN echo 'options(httpgd.host = "0.0.0.0", httpgd.port = 8888, httpgd.token = "aaaaaaaa")' >> /root/.Rprofile
+RUN "${SHELL}" <(curl -L micro.mamba.pm/install.sh)
 
-RUN echo 'options(renv.config.cache.symlinks = FALSE)' >> /root/.Rprofile
-
-RUN echo 'options(shiny.host = "0.0.0.0", shiny.port = 8888)' >> /root/.Rprofile
-
-RUN echo 'options(servr.host = "0.0.0.0", servr.port = 8888)' >> /root/.Rprofile
+RUN micromamba create -n octopize python=3.12.1 octopize.avatar polars
 
 RUN echo 'options(repos = c(REPO_NAME = "https://packagemanager.posit.co/cran/__linux__/jammy/2024-07-22"))' >> /root/.Rprofile
 
