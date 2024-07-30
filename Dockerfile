@@ -54,7 +54,7 @@ RUN rm ~/quarto.deb
 
 RUN mkdir /root/projects/
 
-RUN "${SHELL}" <(curl -L micro.mamba.pm/install.sh)
+RUN curl -L micro.mamba.pm/install.sh
 
 RUN micromamba create -n octopize python=3.12.1 octopize.avatar polars
 
