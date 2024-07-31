@@ -64,9 +64,9 @@ RUN curl https://pyenv.run | bash
 ENV PATH="/root/.pyenv/bin:/root/.pyenv/shims:/root/.pyenv/versions/3.12.0/bin:$PATH"
 ENV PYENV_ROOT="/root/.pyenv"
 
-# Install Python 3.12
-RUN pyenv install 3.12.0
-RUN pyenv global 3.12.0
+# Install Python 3.10
+RUN pyenv install 3.10.14
+RUN pyenv global 3.10.14
 
 # Verify installation
 RUN python --version
