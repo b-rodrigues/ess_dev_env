@@ -46,7 +46,21 @@ RUN apt-get update \
    libjpeg-dev \
    libxt-dev \
    unixodbc-dev \
-   pandoc
+   pandoc \
+   build-essential \
+   libssl-dev \
+   zlib1g-dev \
+   libbz2-dev \
+   libreadline-dev \
+   libsqlite3-dev \
+   git \
+   libncursesw5-dev \
+   xz-utils \
+   tk-dev \
+   libxml2-dev \
+   libxmlsec1-dev \
+   libffi-dev \
+   liblzma-dev
 
 RUN wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.5.55/quarto-1.5.55-linux-amd64.deb -O ~/quarto.deb
 
