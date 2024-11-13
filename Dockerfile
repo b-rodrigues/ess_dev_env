@@ -86,7 +86,7 @@ RUN pyenv global 3.10.14
 RUN python --version
 
 # Install the polars package
-RUN pip install octopize.avatar polars
+RUN pip install octopize.avatar polars matplotlib
 
 RUN echo 'options(repos = c(REPO_NAME = "https://packagemanager.posit.co/cran/__linux__/jammy/2024-07-22"))' >> /root/.Rprofile
 
