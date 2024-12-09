@@ -1,4 +1,4 @@
-FROM rocker/r-ver:4.4.1
+FROM rocker/r-ver:4.4.2
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
@@ -88,7 +88,7 @@ RUN python --version
 # Install the polars package
 RUN pip install octopize.avatar polars matplotlib
 
-RUN echo 'options(repos = c(REPO_NAME = "https://packagemanager.posit.co/cran/__linux__/jammy/2024-07-22"))' >> /root/.Rprofile
+RUN echo 'options(repos = c(REPO_NAME = "https://packagemanager.posit.co/cran/__linux__/jammy/2024-12-06"))' >> /root/.Rprofile
 
 RUN R -e "install.packages(c('quarto', 'tinytex', 'tidyverse', 'reticulate', 'arrow', 'chronicler', 'janitor', 'targets', 'tarchetypes', 'openxlsx', 'data.table', 'skimr', 'plotcli'))" 
 
